@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
-import { supabase, type AuthUser } from '@/lib/supabase';
+import { supabase, type AuthUser, isSupabaseConfigured } from '@/lib/supabase';
 import { User as AuthSession } from '@supabase/supabase-js';
 
 interface AuthContextType {
@@ -36,22 +36,54 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signUp = async (email: string, password: string, metadata: any) => {
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: metadata,
-      },
-    });
-    return { error };
+    if (!isSupabaseConfigured) {
+      return { 
+        error: { 
+          message: 'Authentication not configured. Please set up your Supabase credentials in the environment variables.' 
+        } 
+      };
+    }
+    
+    try {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: metadata,
+        },
+      });
+      return { error };
+    } catch (err) {
+      return { 
+        error: { 
+          message: 'Authentication service unavailable. Please check your Supabase configuration.' 
+        } 
+      };
+    }
   };
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    return { error };
+    if (!isSupabaseConfigured) {
+      return { 
+        error: { 
+          message: 'Authentication not configured. Please set up your Supabase credentials in the environment variables.' 
+        } 
+      };
+    }
+    
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      return { error };
+    } catch (err) {
+      return { 
+        error: { 
+          message: 'Authentication service unavailable. Please check your Supabase configuration.' 
+        } 
+      };
+    }
   };
 
   const signOut = async () => {
@@ -59,10 +91,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signInWithProvider = async (provider: 'google' | 'discord') => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider,
-    });
-    return { error };
+    if (!isSupabaseConfigured) {
+      return { 
+        error: { 
+          message: 'Authentication not configured. Please set up your Supabase credentials in the environment variables.' 
+        } 
+      };
+    }
+    
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+      });
+      return { error };
+    } catch (err) {
+      return { 
+        error: { 
+          message: 'Authentication service unavailable. Please check your Supabase configuration.' 
+        } 
+      };
+    }
   };
 
   return (
