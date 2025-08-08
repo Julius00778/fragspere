@@ -50,17 +50,21 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
-  /* Gaming Theme Colors - Lighter */
-  --primary-gaming: hsl(240, 15%, 25%);
-  --secondary-gaming: hsl(243, 15%, 35%);
-  --bg-dark: hsl(240, 10%, 12%);
-  --card-bg: hsla(243, 15%, 30%, 0.9);
-  --accent-gaming: hsl(185, 80%, 60%);
-  --success-gaming: hsl(140, 80%, 60%);
-  --warning-gaming: hsl(43, 80%, 60%);
-  --error-gaming: hsl(353, 80%, 65%);
-  --text-primary-gaming: hsl(0, 0%, 95%);
-  --text-secondary-gaming: hsl(250, 15%, 80%);
+  /* Mobile Gaming Neon Theme */
+  --primary-gaming: hsl(240, 25%, 8%);
+  --secondary-gaming: hsl(243, 30%, 12%);
+  --bg-dark: hsl(240, 35%, 4%);
+  --card-bg: hsla(243, 25%, 15%, 0.95);
+  --accent-gaming: hsl(280, 100%, 70%); /* Neon Purple */
+  --success-gaming: hsl(180, 100%, 60%); /* Neon Cyan */
+  --warning-gaming: hsl(350, 100%, 65%); /* Neon Red */
+  --error-gaming: hsl(0, 100%, 70%);
+  --text-primary-gaming: hsl(0, 0%, 98%);
+  --text-secondary-gaming: hsl(250, 30%, 75%);
+  --neon-purple: hsl(280, 100%, 70%);
+  --neon-cyan: hsl(180, 100%, 60%);
+  --neon-red: hsl(350, 100%, 65%);
+  --neon-green: hsl(120, 100%, 60%);
 }
 
 .dark {
@@ -110,15 +114,97 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0.00);
 }
 
-/* Gaming Animation Keyframes */
+/* Mobile Gaming Animation Keyframes */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
 
 @keyframes pulse-glow {
-  from { box-shadow: 0 0 20px hsla(185, 100%, 50%, 0.3); }
-  to { box-shadow: 0 0 30px hsla(185, 100%, 50%, 0.6); }
+  from { box-shadow: 0 0 20px hsla(280, 100%, 70%, 0.4); }
+  to { box-shadow: 0 0 30px hsla(280, 100%, 70%, 0.7); }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  70% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Mobile Gaming Utility Classes */
+.neon-purple {
+  color: var(--neon-purple);
+}
+
+.neon-cyan {
+  color: var(--neon-cyan);
+}
+
+.neon-red {
+  color: var(--neon-red);
+}
+
+.neon-green {
+  color: var(--neon-green);
+}
+
+.bg-neon-purple {
+  background-color: var(--neon-purple);
+}
+
+.bg-neon-cyan {
+  background-color: var(--neon-cyan);
+}
+
+.bg-neon-red {
+  background-color: var(--neon-red);
+}
+
+.shadow-neon-purple {
+  box-shadow: 0 0 20px hsla(280, 100%, 70%, 0.5);
+}
+
+.shadow-neon-cyan {
+  box-shadow: 0 0 20px hsla(180, 100%, 60%, 0.5);
+}
+
+.shadow-neon-red {
+  box-shadow: 0 0 20px hsla(350, 100%, 65%, 0.5);
+}
+
+.animate-neon-flicker {
+  animation: neon-flicker 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.mobile-card {
+  @apply bg-card-bg border border-secondary/20 rounded-2xl backdrop-blur-md;
+}
+
+.mobile-button {
+  @apply rounded-full px-6 py-3 font-semibold transition-all duration-200 active:scale-95;
+}
+
+.mobile-input {
+  @apply bg-primary-gaming border border-secondary/30 rounded-xl px-4 py-3 text-text-primary placeholder-text-secondary/60;
 }
 
 /* Gaming Utility Classes */
@@ -175,11 +261,15 @@
 }
 
 .shadow-glow {
-  box-shadow: 0 0 20px hsla(185, 100%, 50%, 0.3);
+  box-shadow: 0 0 20px hsla(280, 100%, 70%, 0.4);
 }
 
 .shadow-glow-lg {
-  box-shadow: 0 0 40px hsla(185, 100%, 50%, 0.4);
+  box-shadow: 0 0 40px hsla(280, 100%, 70%, 0.5);
+}
+
+.shadow-neon {
+  box-shadow: 0 0 15px hsla(280, 100%, 70%, 0.6), 0 0 30px hsla(180, 100%, 60%, 0.3);
 }
 
 .animate-float {
@@ -233,4 +323,8 @@
 
 .border-secondary\/30 {
   border-color: hsla(243, 15%, 35%, 0.4);
+}
+
+.border-secondary\/20 {
+  border-color: hsla(243, 15%, 35%, 0.2);
 }

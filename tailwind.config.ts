@@ -11,17 +11,21 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        // Gaming theme colors - Lighter
-        'gaming-primary': '#2A2A3A',
-        'gaming-secondary': '#3A3A4A', 
-        'gaming-accent': '#4DC4E6',
-        'gaming-success': '#4DFF99',
-        'gaming-warning': '#FFD24D',
-        'gaming-error': '#FF6B7A',
-        'text-primary': '#F5F5F5',
-        'text-secondary': '#C8C8D8',
-        'bg-dark': '#1A1A22',
-        'card-bg': 'rgba(58, 58, 74, 0.9)',
+        // Mobile Gaming Neon Theme
+        'gaming-primary': '#0A0A12',
+        'gaming-secondary': '#12121A', 
+        'gaming-accent': '#C084FC', // Neon Purple
+        'gaming-success': '#22D3EE', // Neon Cyan
+        'gaming-warning': '#F87171', // Neon Red
+        'gaming-error': '#EF4444',
+        'text-primary': '#FAFAFA',
+        'text-secondary': '#D1D5DB',
+        'bg-dark': '#06060A',
+        'card-bg': 'rgba(18, 18, 26, 0.95)',
+        'neon-purple': '#C084FC',
+        'neon-cyan': '#22D3EE',
+        'neon-red': '#F87171',
+        'neon-green': '#22C55E',
         
         // Original shadcn colors
         background: "var(--background)",
