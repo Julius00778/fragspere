@@ -30,6 +30,7 @@ export const insertUserSchema = createInsertSchema(users).pick({
   lastName: true,
   username: true,
   favoriteGame: true,
+  avatar: true,
   bio: true,
 });
 

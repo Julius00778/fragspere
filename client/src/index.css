@@ -50,17 +50,17 @@
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
-  /* Gaming Theme Colors */
-  --primary-gaming: hsl(240, 29%, 11%);
-  --secondary-gaming: hsl(243, 29%, 16%);
-  --bg-dark: hsl(240, 36%, 5%);
-  --card-bg: hsla(243, 29%, 16%, 0.8);
-  --accent-gaming: hsl(185, 100%, 50%);
-  --success-gaming: hsl(140, 100%, 50%);
-  --warning-gaming: hsl(43, 100%, 50%);
-  --error-gaming: hsl(353, 100%, 62%);
-  --text-primary-gaming: hsl(0, 0%, 100%);
-  --text-secondary-gaming: hsl(250, 20%, 73%);
+  /* Gaming Theme Colors - Lighter */
+  --primary-gaming: hsl(240, 15%, 25%);
+  --secondary-gaming: hsl(243, 15%, 35%);
+  --bg-dark: hsl(240, 10%, 12%);
+  --card-bg: hsla(243, 15%, 30%, 0.9);
+  --accent-gaming: hsl(185, 80%, 60%);
+  --success-gaming: hsl(140, 80%, 60%);
+  --warning-gaming: hsl(43, 80%, 60%);
+  --error-gaming: hsl(353, 80%, 65%);
+  --text-primary-gaming: hsl(0, 0%, 95%);
+  --text-secondary-gaming: hsl(250, 15%, 80%);
 }
 
 .dark {
@@ -229,4 +229,8 @@
 
 .bg-secondary {
   background-color: var(--secondary-gaming) !important;
+}
+
+.border-secondary\/30 {
+  border-color: hsla(243, 15%, 35%, 0.4);
 }

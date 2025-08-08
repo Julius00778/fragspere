@@ -39,7 +39,9 @@ export class MemStorage implements IStorage {
     const user: User = {
       ...insertUser,
       id,
-      avatar: null,
+      favoriteGame: insertUser.favoriteGame || null,
+      avatar: insertUser.avatar || null,
+      bio: insertUser.bio || null,
       createdAt: now,
       updatedAt: now,
     };
@@ -56,7 +58,9 @@ export class MemStorage implements IStorage {
     const updatedUser: User = {
       ...existingUser,
       ...userData,
-      avatar: userData.avatar !== undefined ? userData.avatar : existingUser.avatar,
+      favoriteGame: userData.favoriteGame !== undefined ? userData.favoriteGame || null : existingUser.favoriteGame,
+      avatar: userData.avatar !== undefined ? userData.avatar || null : existingUser.avatar,
+      bio: userData.bio !== undefined ? userData.bio || null : existingUser.bio,
       updatedAt: new Date(),
     };
     
