@@ -382,7 +382,8 @@ export default function Auth() {
                       <div className="flex items-center space-x-2">
                         <Checkbox
                           id="terms"
-                          {...signUpForm.register('terms')}
+                          checked={signUpForm.watch('terms')}
+                          onCheckedChange={(checked) => signUpForm.setValue('terms', checked === true)}
                           className="border-secondary/30 data-[state=checked]:bg-accent data-[state=checked]:border-accent"
                           data-testid="checkbox-terms"
                         />
