@@ -1,8 +1,40 @@
-import type { Express } from "express";
+import type { Express, Request } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertUserSchema } from "@shared/schema";
 import { z } from "zod";
+
+function renderPage(
+  req: Request,
+  {
+    title,
+    heading,
+    description,
+    content,
+  }: { title: string; heading: string; description: string; content: string },
+) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: `${req.protocol}://${req.get("host")}${req.originalUrl}`,
+  };
+
+  return `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>${title}</title>
+      <meta name="description" content="${description}" />
+      <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
+    </head>
+    <body>
+      <h1>${heading}</h1>
+      <p>${content}</p>
+    </body>
+  </html>`;
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // User profile routes
@@ -86,6 +118,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       res.status(500).json({ error: "Failed to create post" });
     }
+  });
+
+  const pages = [
+    {
+      path: "/",
+      title: "GamerHub",
+      heading: "Welcome to GamerHub",
+      description: "Join the ultimate gaming community",
+      content: "Sign up or sign in to continue.",
+    },
+    {
+      path: "/dashboard",
+      title: "Dashboard",
+      heading: "Dashboard",
+      description: "Your personal dashboard",
+      content: "Overview of your account.",
+    },
+    {
+      path: "/profile",
+      title: "Profile",
+      heading: "Profile",
+      description: "View your profile",
+      content: "Profile details go here.",
+    },
+  ];
+
+  for (const p of pages) {
+    app.get(p.path, (req, res) => {
+      res.send(renderPage(req, p));
+    });
+  }
+
+  app.get("*", (req, res) => {
+    res.status(404).send(
+      renderPage(req, {
+        title: "Not Found",
+        heading: "Page Not Found",
+        description: "The requested page could not be found",
+        content: "Check the URL and try again.",
+      }),
+    );
   });
 
   const httpServer = createServer(app);
