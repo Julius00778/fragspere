@@ -328,3 +328,91 @@
 .border-secondary\/20 {
   border-color: hsla(243, 15%, 35%, 0.2);
 }
+
+.text-neon-purple {
+  color: var(--neon-purple);
+}
+
+.text-neon-cyan {
+  color: var(--neon-cyan);
+}
+
+.text-neon-red {
+  color: var(--neon-red);
+}
+
+.text-neon-green {
+  color: var(--neon-green);
+}
+
+.bg-neon-purple\/20 {
+  background-color: hsla(280, 100%, 70%, 0.2);
+}
+
+.bg-neon-cyan\/20 {
+  background-color: hsla(180, 100%, 60%, 0.2);
+}
+
+.bg-neon-red\/20 {
+  background-color: hsla(350, 100%, 65%, 0.2);
+}
+
+.bg-neon-green\/20 {
+  background-color: hsla(120, 100%, 60%, 0.2);
+}
+
+.bg-neon-purple\/10 {
+  background-color: hsla(280, 100%, 70%, 0.1);
+}
+
+.bg-neon-cyan\/10 {
+  background-color: hsla(180, 100%, 60%, 0.1);
+}
+
+.bg-neon-red\/10 {
+  background-color: hsla(350, 100%, 65%, 0.1);
+}
+
+.bg-neon-green\/10 {
+  background-color: hsla(120, 100%, 60%, 0.1);
+}
+
+.bg-neon-purple\/5 {
+  background-color: hsla(280, 100%, 70%, 0.05);
+}
+
+.bg-neon-red\/5 {
+  background-color: hsla(350, 100%, 65%, 0.05);
+}
+
+.border-neon-purple\/30 {
+  border-color: hsla(280, 100%, 70%, 0.3);
+}
+
+.border-neon-cyan\/30 {
+  border-color: hsla(180, 100%, 60%, 0.3);
+}
+
+.border-neon-red\/30 {
+  border-color: hsla(350, 100%, 65%, 0.3);
+}
+
+.border-neon-green\/30 {
+  border-color: hsla(120, 100%, 60%, 0.3);
+}
+
+.ring-neon-purple\/30 {
+  --tw-ring-color: hsla(280, 100%, 70%, 0.3);
+}
+
+.ring-neon-purple\/50 {
+  --tw-ring-color: hsla(280, 100%, 70%, 0.5);
+}
+
+.ring-neon-cyan\/50 {
+  --tw-ring-color: hsla(180, 100%, 60%, 0.5);
+}
+
+.ring-neon-red\/30 {
+  --tw-ring-color: hsla(350, 100%, 65%, 0.3);
+}

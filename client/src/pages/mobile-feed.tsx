@@ -65,7 +65,7 @@ export default function MobileFeed() {
             <div className="w-8 h-8 bg-gradient-to-r from-neon-purple to-neon-cyan rounded-xl flex items-center justify-center">
               <Flame className="w-4 h-4 text-white" />
             </div>
-            <h1 className="text-xl font-bold neon-purple">GameHub</h1>
+            <h1 className="text-xl font-bold text-neon-purple">GameHub</h1>
           </div>
           <div className="flex items-center space-x-2">
             <Badge className="bg-neon-purple/20 text-neon-purple border-neon-purple/30">

@@ -93,7 +93,7 @@ export default function MobileAI() {
               data-testid={`quick-action-${index}`}
             >
               <span className="text-xl">{action.icon}</span>
-              <span className={`text-sm font-medium ${action.color}`}>{action.label}</span>
+              <span className={`text-sm font-medium text-${action.color}`}>{action.label}</span>
             </button>
           ))}
         </div>

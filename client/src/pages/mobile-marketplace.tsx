@@ -107,7 +107,7 @@ export default function MobileMarketplace() {
               <div className="w-8 h-8 bg-gradient-to-r from-neon-cyan to-neon-purple rounded-xl flex items-center justify-center">
                 <ShoppingBag className="w-4 h-4 text-white" />
               </div>
-              <h1 className="text-xl font-bold neon-cyan">Marketplace</h1>
+              <h1 className="text-xl font-bold text-neon-cyan">Marketplace</h1>
             </div>
             <Button 
               size="sm" 

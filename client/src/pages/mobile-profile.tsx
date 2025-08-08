@@ -148,22 +148,22 @@ export default function MobileProfile() {
       <div className="px-4">
         <div className="grid grid-cols-4 gap-3">
           <div className="mobile-card p-3 text-center">
-            <Trophy className="w-5 h-5 mx-auto mb-1 neon-red" />
+            <Trophy className="w-5 h-5 mx-auto mb-1 text-neon-red" />
             <div className="text-sm font-bold">{userStats.winRate}%</div>
             <div className="text-xs text-text-secondary">Win Rate</div>
           </div>
           <div className="mobile-card p-3 text-center">
-            <Target className="w-5 h-5 mx-auto mb-1 neon-cyan" />
+            <Target className="w-5 h-5 mx-auto mb-1 text-neon-cyan" />
             <div className="text-sm font-bold">{userStats.kd}</div>
             <div className="text-xs text-text-secondary">K/D</div>
           </div>
           <div className="mobile-card p-3 text-center">
-            <Gamepad2 className="w-5 h-5 mx-auto mb-1 neon-purple" />
+            <Gamepad2 className="w-5 h-5 mx-auto mb-1 text-neon-purple" />
             <div className="text-sm font-bold">{userStats.hoursPlayed}h</div>
             <div className="text-xs text-text-secondary">Played</div>
           </div>
           <div className="mobile-card p-3 text-center">
-            <Star className="w-5 h-5 mx-auto mb-1 neon-green" />
+            <Star className="w-5 h-5 mx-auto mb-1 text-neon-green" />
             <div className="text-sm font-bold">{userStats.achievements}</div>
             <div className="text-xs text-text-secondary">Achievements</div>
           </div>
@@ -173,7 +173,7 @@ export default function MobileProfile() {
       {/* Game Stats */}
       <div className="p-4">
         <h3 className="text-lg font-bold mb-3 flex items-center">
-          <TrendingUp className="w-5 h-5 mr-2 neon-cyan" />
+          <TrendingUp className="w-5 h-5 mr-2 text-neon-cyan" />
           Game Statistics
         </h3>
         <div className="space-y-3">
@@ -186,7 +186,7 @@ export default function MobileProfile() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sm">{game.game}</h4>
-                    <Badge className={`text-xs bg-${game.color}/20 text-${game.color} border-${game.color}/30`}>
+                    <Badge className={`text-xs ${game.color === 'neon-red' ? 'bg-neon-red/20 text-neon-red border-neon-red/30' : game.color === 'neon-cyan' ? 'bg-neon-cyan/20 text-neon-cyan border-neon-cyan/30' : 'bg-neon-purple/20 text-neon-purple border-neon-purple/30'}`}>
                       {game.rank}
                     </Badge>
                   </div>
@@ -206,11 +206,11 @@ export default function MobileProfile() {
                   <div className="text-xs text-text-secondary">Matches</div>
                 </div>
                 <div>
-                  <div className="text-sm font-bold neon-green">{game.winRate}%</div>
+                  <div className="text-sm font-bold text-neon-green">{game.winRate}%</div>
                   <div className="text-xs text-text-secondary">Win Rate</div>
                 </div>
                 <div>
-                  <div className="text-sm font-bold neon-cyan">{game.kd}</div>
+                  <div className="text-sm font-bold text-neon-cyan">{game.kd}</div>
                   <div className="text-xs text-text-secondary">K/D</div>
                 </div>
                 <div>
@@ -226,7 +226,7 @@ export default function MobileProfile() {
       {/* Recent Achievements */}
       <div className="p-4">
         <h3 className="text-lg font-bold mb-3 flex items-center">
-          <Trophy className="w-5 h-5 mr-2 neon-red" />
+          <Trophy className="w-5 h-5 mr-2 text-neon-red" />
           Recent Achievements
         </h3>
         <div className="grid grid-cols-2 gap-3">

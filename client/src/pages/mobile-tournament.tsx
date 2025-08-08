@@ -79,15 +79,15 @@ export default function MobileTournament() {
           {/* Tournament Stats */}
           <div className="grid grid-cols-3 gap-4">
             <div className="mobile-card p-3 text-center">
-              <div className="text-lg font-bold neon-cyan">{tournamentData.prize}</div>
+              <div className="text-lg font-bold text-neon-cyan">{tournamentData.prize}</div>
               <div className="text-xs text-text-secondary">Prize Pool</div>
             </div>
             <div className="mobile-card p-3 text-center">
-              <div className="text-lg font-bold neon-purple">{tournamentData.participants}</div>
+              <div className="text-lg font-bold text-neon-purple">{tournamentData.participants}</div>
               <div className="text-xs text-text-secondary">Started</div>
             </div>
             <div className="mobile-card p-3 text-center">
-              <div className="text-lg font-bold neon-red">{tournamentData.remaining}</div>
+              <div className="text-lg font-bold text-neon-red">{tournamentData.remaining}</div>
               <div className="text-xs text-text-secondary">Remaining</div>
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function MobileTournament() {
                       )}
                     </div>
                     <div className={`text-xl font-bold ${
-                      match.team1.score > match.team2.score ? 'neon-green' : 'text-text-secondary'
+                      match.team1.score > match.team2.score ? 'text-neon-green' : 'text-text-secondary'
                     }`}>
                       {match.team1.score}
                     </div>
@@ -192,7 +192,7 @@ export default function MobileTournament() {
                       )}
                     </div>
                     <div className={`text-xl font-bold ${
-                      match.team2.score > match.team1.score ? 'neon-green' : 'text-text-secondary'
+                      match.team2.score > match.team1.score ? 'text-neon-green' : 'text-text-secondary'
                     }`}>
                       {match.team2.score}
                     </div>
@@ -246,7 +246,7 @@ export default function MobileTournament() {
                   </div>
                   
                   <div className="text-right">
-                    <div className="text-sm font-bold neon-purple">{player.points}</div>
+                    <div className="text-sm font-bold text-neon-purple">{player.points}</div>
                     <div className="text-xs text-text-secondary">points</div>
                   </div>
                 </div>
